@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 Hello ewgjf
+=======
+Hello
+>>>>>>> 2a19d0a... first
