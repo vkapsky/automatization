@@ -9,12 +9,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.FlightSelectPage;
 import pages.MainPage;
 
 import java.util.concurrent.TimeUnit;
-
-import static java.lang.Thread.sleep;
 
 public class MainPageTest {
     public static WebDriver driver;
@@ -31,12 +28,11 @@ public class MainPageTest {
     }
 
     public void waitForLoad(WebDriver driver) {
-        ExpectedCondition<Boolean> pageLoadCondition = new
-                ExpectedCondition<Boolean>() {
-                    public Boolean apply(WebDriver driver) {
-                        return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
-                    }
-                };
+        ExpectedCondition<Boolean> pageLoadCondition = new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver driver) {
+                return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
+            }
+        };
         WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(pageLoadCondition);
     }
@@ -46,7 +42,6 @@ public class MainPageTest {
         MainPage page = new MainPage(driver);
         waitForLoad(driver);
         String errorText = "Data not entered correctly";
-        //page.getBookBtn().click();
         page.getBookSwitchBtn().click();
         page.getBookBtn().click();
         Assert.assertEquals(page.getBookError().getText(), errorText);
@@ -81,24 +76,26 @@ public class MainPageTest {
         page.getFlightInfoBtn().click();
         Assert.assertEquals(page.getFlightInfoError().getText(), errorText);
     }
+
     @Test
     public void validFirstNameMain() {
         MainPage page = new MainPage(driver);
         waitForLoad(driver);
-        String errorText = "The Booking Code field is mandatory. The name entered is not valid. The last name field is mandatory.";
-        //page.getBookBtn().click();
+        String errorText = "The Booking Code field is mandatory. The name entered is not valid. The last name entered is not valid.";
+        page.getBookSwitchBtn().click();
         page.getCheckInSwitchBtn().click();
         page.getCheckInName().sendKeys("1234");
         page.getCheckInBtn().click();
 
         Assert.assertEquals(page.getCheckInError().getText(), errorText);
     }
+
     @Test
     public void validLastNameMain() {
         MainPage page = new MainPage(driver);
         waitForLoad(driver);
         String errorText = "The Booking Code field is mandatory. The name field is mandatory. The last name entered is not valid.";
-        page.getBookBtn().click();
+        page.getBookSwitchBtn().click();
         page.getCheckInSwitchBtn().click();
         page.getCheckInSurname().sendKeys("1234");
         page.getCheckInBtn().click();
