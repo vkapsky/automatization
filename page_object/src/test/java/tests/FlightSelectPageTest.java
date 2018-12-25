@@ -71,7 +71,7 @@ public class FlightSelectPageTest {
         mPage.getReturnDate().sendKeys("03/01/2019");
         mPage.getBookBtn().click();
         mPage.getBookSubmitBtn().click();
-        Assert.assertEquals(fsPage.getDate().getText(), "13 Dec - 03 Jan");
+        Assert.assertEquals(fsPage.getDate().getText(), "25 Dec - 03 Jan");
         driver.get("https://www.alitalia.com/en_en/");
 
     }
