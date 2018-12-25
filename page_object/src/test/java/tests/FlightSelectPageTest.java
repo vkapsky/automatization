@@ -42,6 +42,7 @@ public class FlightSelectPageTest {
     public void isCityRight() {
         MainPage mPage = new MainPage(driver);
         FlightSelectPage fsPage = new FlightSelectPage(driver);
+        ((JavascriptExecutor)driver).executeScript("scroll(0,400)");
         waitForLoad(driver);
         //mPage.getBookSwitchBtn().click();
         mPage.getBookBtn().click();
@@ -60,6 +61,7 @@ public class FlightSelectPageTest {
     public void isDataRight() {
         MainPage mPage = new MainPage(driver);
         FlightSelectPage fsPage = new FlightSelectPage(driver);
+        ((JavascriptExecutor)driver).executeScript("scroll(0,400)");
         waitForLoad(driver);
         //mPage.getBookSwitchBtn().click();
         mPage.getBookBtn().click();
@@ -79,6 +81,7 @@ public class FlightSelectPageTest {
     public void numberOfAdults() {
         MainPage mPage = new MainPage(driver);
         FlightSelectPage fsPage = new FlightSelectPage(driver);
+        ((JavascriptExecutor)driver).executeScript("scroll(0,400)");
         waitForLoad(driver);
         //mPage.getBookSwitchBtn().click();
         mPage.getBookBtn().click();
@@ -99,6 +102,7 @@ public class FlightSelectPageTest {
     public void EconomicClass() {
         MainPage mPage = new MainPage(driver);
         FlightSelectPage fsPage = new FlightSelectPage(driver);
+        ((JavascriptExecutor)driver).executeScript("scroll(0,400)");
         waitForLoad(driver);
         //mPage.getBookSwitchBtn().click();
         mPage.getBookBtn().click();

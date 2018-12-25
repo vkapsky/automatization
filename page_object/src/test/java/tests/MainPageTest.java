@@ -40,6 +40,7 @@ public class MainPageTest {
     @Test
     public void checkBookFieldsFillMain() {
         MainPage page = new MainPage(driver);
+        ((JavascriptExecutor) driver).executeScript("scroll(0,400)");
         waitForLoad(driver);
         String errorText = "Data not entered correctly";
         page.getBookSwitchBtn().click();
@@ -60,6 +61,7 @@ public class MainPageTest {
     @Test
     public void checkMyFlightsFieldsFillMain() {
         MainPage page = new MainPage(driver);
+        ((JavascriptExecutor) driver).executeScript("scroll(0,400)");
         waitForLoad(driver);
         String errorText = "The Booking Code field is mandatory. The name field is mandatory. The last name field is mandatory.";
         page.getMyFlightsSwitchBtn().click();
