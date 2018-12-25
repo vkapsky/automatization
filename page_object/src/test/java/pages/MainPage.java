@@ -67,6 +67,12 @@ public class MainPage {
     @FindBy(id = "addBabies")
     private WebElement addBabiesBtn;
 
+    @FindBy(id = "name")
+    private WebElement checkInName;
+
+    @FindBy(id = "surname")
+    private WebElement checkInSurname;
+
     public WebElement getBookSwitchBtn() {
         return bookSwitchBtn;
     }
@@ -131,7 +137,11 @@ public class MainPage {
         return bookSubmitBtn;
     }
 
-    public WebElement getAddBabiesBtn() {
-        return addBabiesBtn;
+    public WebElement getCheckInName() {
+        return checkInName;
+    }
+
+    public WebElement getCheckInSurname() {
+        return checkInSurname;
     }
 }

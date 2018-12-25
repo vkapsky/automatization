@@ -81,6 +81,30 @@ public class MainPageTest {
         page.getFlightInfoBtn().click();
         Assert.assertEquals(page.getFlightInfoError().getText(), errorText);
     }
+    @Test
+    public void validFirstNameMain() {
+        MainPage page = new MainPage(driver);
+        waitForLoad(driver);
+        String errorText = "The Booking Code field is mandatory. The name entered is not valid. The last name field is mandatory.";
+        //page.getBookBtn().click();
+        page.getCheckInSwitchBtn().click();
+        page.getCheckInName().sendKeys("1234");
+        page.getCheckInBtn().click();
+
+        Assert.assertEquals(page.getCheckInError().getText(), errorText);
+    }
+    @Test
+    public void validLastNameMain() {
+        MainPage page = new MainPage(driver);
+        waitForLoad(driver);
+        String errorText = "The Booking Code field is mandatory. The name field is mandatory. The last name entered is not valid.";
+        page.getBookBtn().click();
+        page.getCheckInSwitchBtn().click();
+        page.getCheckInSurname().sendKeys("1234");
+        page.getCheckInBtn().click();
+
+        Assert.assertEquals(page.getCheckInError().getText(), errorText);
+    }
 
     @AfterClass
     public static void tearDown() {

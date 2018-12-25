@@ -56,8 +56,9 @@ public class FlightSelectPageTest {
         driver.get("https://www.alitalia.com/en_en/");
 
     }
+
     @Test
-    public void numberOfInfants() {
+    public void isDataRight() {
         MainPage mPage = new MainPage(driver);
         FlightSelectPage fsPage = new FlightSelectPage(driver);
         waitForLoad(driver);
@@ -66,7 +67,7 @@ public class FlightSelectPageTest {
         String inputText = "Milan MIL";
         mPage.getDest().sendKeys(inputText);
         mPage.getDepartureDate().clear();
-        mPage.getDepartureDate().sendKeys("02/01/2019");
+        mPage.getDepartureDate().sendKeys("25/12/2018");
         mPage.getReturnDate().clear();
         mPage.getReturnDate().sendKeys("03/01/2019");
         mPage.getBookBtn().click();
@@ -75,7 +76,44 @@ public class FlightSelectPageTest {
         driver.get("https://www.alitalia.com/en_en/");
 
     }
+    @Test
+    public void numberOfAdults() {
+        MainPage mPage = new MainPage(driver);
+        FlightSelectPage fsPage = new FlightSelectPage(driver);
+        waitForLoad(driver);
+        //mPage.getBookSwitchBtn().click();
+        mPage.getBookBtn().click();
+        String inputText = "Milan MIL";
+        mPage.getDest().sendKeys(inputText);
+        mPage.getDepartureDate().clear();
+        mPage.getDepartureDate().sendKeys("25/12/2018");
+        mPage.getReturnDate().clear();
+        mPage.getReturnDate().sendKeys("03/01/2019");
+        mPage.getBookBtn().click();
+        mPage.getBookSubmitBtn().click();
+        Assert.assertEquals(fsPage.getNumberOfAdults().getText(), "25 Dec - 03 Jan | 1 Adult\n" +
+                "Change search");
+        driver.get("https://www.alitalia.com/en_en/");
+    }
 
+    @Test
+    public void EconomicClass() {
+        MainPage mPage = new MainPage(driver);
+        FlightSelectPage fsPage = new FlightSelectPage(driver);
+        waitForLoad(driver);
+        //mPage.getBookSwitchBtn().click();
+        mPage.getBookBtn().click();
+        String inputText = "Milan MIL";
+        mPage.getDest().sendKeys(inputText);
+        mPage.getDepartureDate().clear();
+        mPage.getDepartureDate().sendKeys("25/12/2018");
+        mPage.getReturnDate().clear();
+        mPage.getReturnDate().sendKeys("03/01/2019");
+        mPage.getBookBtn().click();
+        mPage.getBookSubmitBtn().click();
+        Assert.assertEquals(fsPage.getFlightClass().getText(), "ECONOMY");
+        driver.get("https://www.alitalia.com/en_en/");
+    }
     @AfterClass
     public static void tearDown() {
         driver.quit();
