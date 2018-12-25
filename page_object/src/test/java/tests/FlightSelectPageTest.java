@@ -48,7 +48,7 @@ public class FlightSelectPageTest {
         mPage.getBookBtn().click();
         String inputText = "Milan MIL";
         mPage.getDest().sendKeys(inputText);
-        mPage.getDepartureDate().sendKeys("01/01/2019");
+        mPage.getDepartureDate().sendKeys("26/12/2018");
         mPage.getReturnDate().sendKeys("02/01/2019");
         mPage.getBookBtn().click();
         mPage.getBookSubmitBtn().click();
@@ -68,12 +68,12 @@ public class FlightSelectPageTest {
         String inputText = "Milan MIL";
         mPage.getDest().sendKeys(inputText);
         mPage.getDepartureDate().clear();
-        mPage.getDepartureDate().sendKeys("25/12/2018");
+        mPage.getDepartureDate().sendKeys("26/12/2018");
         mPage.getReturnDate().clear();
         mPage.getReturnDate().sendKeys("03/01/2019");
         mPage.getBookBtn().click();
         mPage.getBookSubmitBtn().click();
-        Assert.assertEquals(fsPage.getDate().getText(), "25 Dec - 03 Jan");
+        Assert.assertEquals(fsPage.getDate().getText(), "26 Dec - 03 Jan");
         driver.get("https://www.alitalia.com/en_en/");
 
     }
@@ -88,12 +88,12 @@ public class FlightSelectPageTest {
         String inputText = "Milan MIL";
         mPage.getDest().sendKeys(inputText);
         mPage.getDepartureDate().clear();
-        mPage.getDepartureDate().sendKeys("25/12/2018");
+        mPage.getDepartureDate().sendKeys("26/12/2018");
         mPage.getReturnDate().clear();
         mPage.getReturnDate().sendKeys("03/01/2019");
         mPage.getBookBtn().click();
         mPage.getBookSubmitBtn().click();
-        Assert.assertEquals(fsPage.getNumberOfAdults().getText(), "25 Dec - 03 Jan | 1 Adult\n" +
+        Assert.assertEquals(fsPage.getNumberOfAdults().getText(), "26 Dec - 03 Jan | 1 Adult\n" +
                 "Change search");
         driver.get("https://www.alitalia.com/en_en/");
     }
@@ -109,7 +109,7 @@ public class FlightSelectPageTest {
         String inputText = "Milan MIL";
         mPage.getDest().sendKeys(inputText);
         mPage.getDepartureDate().clear();
-        mPage.getDepartureDate().sendKeys("25/12/2018");
+        mPage.getDepartureDate().sendKeys("26/12/2018");
         mPage.getReturnDate().clear();
         mPage.getReturnDate().sendKeys("03/01/2019");
         mPage.getBookBtn().click();
